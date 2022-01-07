@@ -5,25 +5,24 @@
       <input type="text" style="padding: 4px" v-model="inputVal" />
       <button @click="addInput">点我添加</button>
     </div>
-    <ul>
-      <li v-for="(item, key) in list" :key="item.id">
-          {{ item.name }}
-          <span @click="deleteItem(key)" style="font-weight:bold">X</span>
-        </li>
-    </ul>
+    <List :listData="list" @onDelete="handleDelete"  />
   </div>
 </template>
 
 <script>
 import { ref, reactive } from "vue";
+import List from "./List.vue";
 
 export default {
+  components: {
+    List,
+  },
   setup() {
     // 使用todo逻辑
-    var { list, inputVal, addInput, deleteItem } = todo();
+    var { list, inputVal, addInput, handleDelete } = todo();
 
     // 将数据和方法返回，暴露给模板使用
-    return { list, inputVal, addInput, deleteItem };
+    return { list, inputVal, addInput, handleDelete };
   },
 };
 
@@ -43,15 +42,15 @@ function todo() {
     list.push({ id: +new Date(), name: inputVal.value });
   }
 
-  function deleteItem(index) {
-      list.splice(index, 1)
+  function handleDelete(index) {
+    list.splice(index, 1);
   }
 
   return {
     inputVal,
     list,
     addInput,
-    deleteItem,
+    handleDelete,
   };
 }
 </script>
