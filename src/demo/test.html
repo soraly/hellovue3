@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            "valuenum": 6,
+            "aliasname": "平时",
+            "fieldname": "英语阅读平时",
+            "isleaf": 1
+        }
+        undefined
+        var handler = {
+            get: function (target, key) {
+                console.log(target, key, '读取');
+                return target[key]
+            },
+            set: function (target, key, value) {
+                console.log(target, key, value, '赋值操作');
+                target[key] = value
+            },
+        }
+        var objProxy = new Proxy(obj, handler)
+
+    </script>
+</body>
+
+</html>
