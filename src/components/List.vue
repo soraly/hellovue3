@@ -1,18 +1,22 @@
 <template>
-  <ul>
-    <li v-for="(item, key) in listData" :key="item.id">
+  <li v-for="(item, key) in listData" :key="item.id">
       {{ item.name }}
       <span @click="deleteItem(key)" style="font-weight: bold">X</span>
     </li>
-  </ul>
+
+    <!-- 可以直接把h2挂载到body下 -->
+    <teleport to="body">
+      <h2>123</h2>
+    </teleport>  
+    
 </template>
 
 <script>
 
 export default {
   props: ["listData"],
+  emits: ['onDelete'],
   setup(params, { emit }) {
-    console.log(params, "params");
     
     function deleteItem(key) {
       emit("onDelete", key);
