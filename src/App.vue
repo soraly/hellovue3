@@ -5,6 +5,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Todo from "./components/TodoList.vue";
 import RefsDeom from "./components/toRefAndtoRefs/toRefs.vue";
 import FnDemo from "./components/toRefAndtoRefs/useFn.vue";
+import AsyncDemo from "./components/asyncDemo/model.vue";
+import WatchDemo from "./components/watchDemo/model.vue";
 </script>
 
 <template>
@@ -15,6 +17,8 @@ import FnDemo from "./components/toRefAndtoRefs/useFn.vue";
     <!-- <RefsDeom />
     <hr /> -->
     <!-- <FnDemo /> -->
+    <!-- <AsyncDemo/> -->
+    <WatchDemo />
   </div>
 </template>
 

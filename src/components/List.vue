@@ -5,9 +5,9 @@
     </li>
 
     <!-- 可以直接把h2挂载到body下 -->
-    <teleport to="body">
+    <!-- <teleport to="body">
       <h2>123</h2>
-    </teleport>  
+    </teleport>   -->
     
 </template>
 

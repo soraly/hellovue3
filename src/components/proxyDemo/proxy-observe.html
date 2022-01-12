@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = {
+            name: 'xiang',
+            age: 20,
+            obj: {
+                city: 'changxing',
+                a: {
+                    b: 'b'
+                }
+            },
+            school: {
+                class: {
+                    student: {
+                        name: 'lzx'
+                    }
+                }
+            }
+        }
+
+        function Observe(target = {}) {
+            if (typeof target !== 'object' || target === null) {
+                return
+            }
+            console.log(target, 'observe')
+            //代理配置
+            const proxyConf = {
+                get(target, key, receiver) {
+                    //只处理非原型上的属性
+                    if (Reflect.ownKeys(target).includes(key)) {
+                        console.log('get...', key)
+                    }
+
+                    //深度监听
+                    return Observe(target[key])
+                },
+                set(target, key, value, receiver) {
+
+                    //只处理非原型上的属性
+                    if (Reflect.ownKeys(target).includes(key)) {
+                        console.log('原有的属性set...', key)
+                    } else {
+                        console.log('新增的属性set...', key)
+                    }
+                    var result = Reflect.set(target, key, value, receiver)
+                    return result
+                },
+                deleteProperty(target, key) {
+                    console.log('delete done');
+                    const result = Reflect.deleteProperty(target, 'xixi')
+                    return result
+                }
+            }
+
+            //生成代理对象
+            const observed = new Proxy(target, proxyConf);
+            return observed
+        }
+
+        var proxyData = Observe(data)
+        console.log(proxyData.school.class)
+
+    </script>
+</body>
+
+</html>
