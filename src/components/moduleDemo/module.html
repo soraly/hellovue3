@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>动态引入</p>
+     <button id="btn1">load1</button>
+     <button id="btn2">load2</button>
+
+    <script type="module">
+        document.getElementById('btn1').addEventListener('click',async ()=>{
+            var res = await import('./math.js');
+            console.log(res,'res') // res 返回module,math.js 返回了export function 
+            //add(){}，故res需要这样调用:
+            res.add(20,30)
+        })
+        document.getElementById('btn2').addEventListener('click',async ()=>{
+            var res2 = await import('./print.js');
+            console.log(res2,'res2') // res 返回module，由于print.js 返回了 
+            //export default res2需要这样调用：
+            res2.default(123);
+
+        })
+    </script>
+</body>
+
+</html>
