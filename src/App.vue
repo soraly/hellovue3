@@ -2,7 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from "./components/HelloWorld.vue";
-import Todo from "./components/TodoList.vue";
+import Todo from "./components/todo/TodoList.vue";
 import RefsDeom from "./components/toRefAndtoRefs/toRefs.vue";
 import FnDemo from "./components/toRefAndtoRefs/useFn.vue";
 import AsyncDemo from "./components/asyncDemo/model.vue";
@@ -18,7 +18,7 @@ import WatchDemo from "./components/watchDemo/model.vue";
     <hr /> -->
     <!-- <FnDemo /> -->
     <!-- <AsyncDemo/> -->
-    <WatchDemo />
+    <!-- <WatchDemo /> -->
   </div>
 </template>
 

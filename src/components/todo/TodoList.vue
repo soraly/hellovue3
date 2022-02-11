@@ -1,4 +1,5 @@
 <template>
+  <Review />
   <div style="text-align: left">
     <h2>this is todo</h2>
     <p>
@@ -15,10 +16,12 @@
 <script>
 import { ref, reactive, onMounted } from "vue";
 import List from "./List.vue";
+import Review from "./Review.vue";
 
 export default {
   components: {
     List,
+    Review
   },
   setup() {
     // 使用todo逻辑
