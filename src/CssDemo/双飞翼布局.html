@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 100%;
+        }
+        .wrap .center {
+            width: 100%;
+            background: #eee;
+        }
+        .center .center-content {
+            margin: 0 150px 0 150px;
+        }
+        .left {
+            background: skyblue;
+            margin-left: -100%;
+            /* 关键点是这个-100%，可以理解为，三个item浮动后，原本都处在一条直线上，由于屏幕宽度不够被
+            挤下去了，给左侧div设置了margin：-100%后，自身往左侧偏移了父元素的宽度，就到了屏幕最左边 */
+        }
+        .right {
+            background: tan;
+            margin-left: -150px;
+            /* 向左位移自己的宽度，就能够到最右边 */
+        }
+        .item {
+            width: 150px;
+            height: 150px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item center">
+            <div class="center-content">this is main</div>
+        </div>
+        <div class="item left">i am left</div>
+        <div class="item right">i am right</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background: skyblue;
+            display: flex;
+            justify-content:space-around;
+        }
+        em {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #eee;
+        }
+        em:first-of-type {
+            align-self: flex-start;
+        }
+        em:nth-of-type(2){
+            align-self: center;
+        }
+        em:nth-of-type(3){
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <em></em>
+        <em></em>
+        <em></em>
+    </div>
+</body>
+</html>
